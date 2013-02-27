@@ -1,0 +1,99 @@
+@import 'nib'
+
+// mixin
+linear-gradient(from, to)
+  background -webkit-linear-gradient(top, from, to)
+  background -moz-linear-gradient(top, from, to)
+  filter unquote('progid:DXImageTransform.Microsoft.Gradient(startColorstr=' + from + ', endColorstr=' + to + ')')
+
+.ui-nav
+  position: relative
+
+.ui-nav ul,
+.ui-nav li
+  list-style-type: none
+
+// 一级导航
+.ui-nav-main
+  clearfix()
+  margin: 0
+  padding-left: 10px
+  border-radius: 2px 2px 0 0
+  linear-gradient(#F39100,  #F17A00)
+
+.ui-nav-item
+  float: left
+  margin: 7px 5px 0 0
+  a
+    display: inline-block
+    _display: inline;
+    _zoom: 1
+    height: 35px
+    padding: 0 15px
+    line-height: 35px
+    color: #fff
+    font-weight: bold
+    font-size: 14px
+    &:hover
+      linear-gradient(#F49C25, #F49726)
+      //background: #F38F26
+      border-radius: 2px 2px 0 0
+
+.ui-nav-item-current a,
+.ui-nav-item-current a:hover
+  background: #fff
+  filter: none
+  color: #6D6969
+  border-radius: 2px 2px 0 0
+
+// 二级导航
+.ui-nav-submain
+  display: none
+  absolute: left 10px top 40px
+  margin: 0
+  padding: 0
+
+.ui-nav-subitem
+  float: left
+  margin: 5px 10px 0 0
+  a
+    padding: 0 15px
+    height: 24px
+    line-height: 26px
+    background: transparent
+    border: 1px solid transparent
+    color: #868686
+    font-weight: normal
+    font-size: 12px
+    border-radius: 3px
+    &:hover
+      background: transparent
+      filter: none
+      box-shadow: 0px -1px 0px #F6F6F6
+      border: 1px solid #CECECE
+      border-radius: 3px
+
+.ui-nav-subitem-current a,
+.ui-nav-subitem-current a:hover
+  border-left: 1px solid #DADADA
+  border-right: 1px solid #DADADA
+  border-top: 1px solid #BEBEBE
+  border-bottom: 1px solid transparent
+  box-shadow: inset 0px 1px 0px #DADADA
+  background: #E7E7E7
+
+// 二级导航的背景
+.ui-nav-subcontainer
+  height: 37px
+  border-left: 1px solid #CCCCCC
+  border-right: 1px solid #CCCCCC
+  border-bottom: 1px solid #CCCCCC
+  linear-gradient(#FEFEFE,  #F7F7F7)
+
+// 控制二级导航显隐
+.ui-nav-item-current .ui-nav-submain
+  display: block
+
+.ui-nav-nosub .ui-nav-subcontainer,
+.ui-nav-nosub .ui-nav-subitem
+  display: none

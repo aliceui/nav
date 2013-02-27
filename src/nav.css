@@ -1,0 +1,115 @@
+.ui-nav {
+  overflow: hidden;
+  position: relative;
+}
+
+.ui-nav ul,
+.ui-nav li {
+  list-style-type: none;
+}
+
+/* 清理浮动 */
+.ui-nav-main:after {
+  visibility:hidden;
+  display:block;
+  font-size:0;
+  content:" ";
+  clear:both;
+  height:0;
+}
+.ui-nav-main {
+  zoom:1; /* for IE6 IE7 */
+}
+
+/* 一级导航 */
+.ui-nav-main {
+  margin: 0;
+  padding-left: 10px;
+  border-radius: 2px 2px 0 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(#F39100), to(#F17A00));
+  background: -moz-linear-gradient(top,  #F39100,  #F17A00); 
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#000000'); /* for IE */
+}
+
+.ui-nav-item {
+  float: left;
+  height: 35px;
+  margin: 7px 5px 0 0;
+}
+
+.ui-nav-item a {
+  display: block;
+  padding: 0 15px;
+  height: 100%;
+  line-height: 35px; 
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.ui-nav-item a:hover {
+  background: #F49C25;
+  border-radius: 2px 2px 0 0;
+}
+.ui-nav-item-current a,
+.ui-nav-item-current a:hover {
+  background: #fff;
+  color: #6D6969;
+  border-radius: 2px 2px 0 0;
+}
+.ui-nav-item-current .ui-nav-submain {
+  display: block;
+}
+
+/* 二级导航 */
+.ui-nav-subcontainer {
+  height: 39px;
+  border-left: 1px solid #CCCCCC;
+  border-right: 1px solid #CCCCCC;
+  border-bottom: 1px solid #CCCCCC;
+  background:-webkit-gradient(linear, left top, left bottom, from(#FEFEFE), to(#F7F7F7));
+}
+.ui-nav-nosub .ui-nav-subcontainer,
+.ui-nav-nosub .ui-nav-subitem {
+  display: none;
+}
+
+.ui-nav-submain {
+  display: none;
+  position: absolute;
+  left: 10px;
+  margin: 0;
+  padding: 0;
+}
+.ui-nav-subitem {
+  float: left;
+  margin: 5px 10px 0 0;
+}
+
+.ui-nav-subitem a {
+  display: block;
+  padding: 0 15px;
+  line-height: 26px; 
+  background: transparent;
+  border: 1px solid transparent;
+  color: #868686;
+  font-weight: normal;
+  font-size: 12px;
+  border-radius: 3px;
+}
+
+.ui-nav-subitem a:hover {
+  background: transparent;
+  box-shadow: 0px -1px 0px #F6F6F6;
+  border: 1px solid #CECECE;
+  border-radius: 3px;
+}
+.ui-nav-subitem-current a,
+.ui-nav-subitem-current a:hover {
+  border-left: 1px solid #DADADA;
+  border-right: 1px solid #DADADA;
+  border-top: 1px solid #BEBEBE;
+  border-bottom: 1px solid transparent;
+  box-shadow: inset 0px 1px 0px #DADADA;
+  background: #E7E7E7;
+}

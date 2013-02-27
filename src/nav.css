@@ -57,7 +57,7 @@
   display: none;
   position: absolute;
   left: 10px;
-  top: 40px;
+  top: 42px;
   margin: 0;
   padding: 0;
 }
@@ -71,6 +71,8 @@
   line-height: 26px;
   background: transparent;
   border: 1px solid transparent;
+  _border-color: #ff6347;
+  _filter: chroma(#ff6347);
   color: #868686;
   font-weight: normal;
   font-size: 12px;

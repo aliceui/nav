@@ -35,8 +35,12 @@
 
     // for alice
     for(var dep in data.dependencies) {
-        seajs.use(dep);
+        // 如果依赖的是样式模块
+        if (data.dependencies[dep].indexOf('.css') > 0) {
+            seajs.use(dep);
+        }
     }
+
   })();
 </script>
     <!--[if lt IE 9]>
@@ -51,14 +55,25 @@
         <p class="version">当前版本：<a href="http://aralejs.org/docs/online-status.html#alice-nav" title="点击查看此组件发布情况">1.0.0</a></p>
         <p class="description">导航样式</p>
         <a class="source" href="https://github.com/aliceui/nav.git" target="_blank">View the Project</a>
+<ul id="module-output"> 
+</ul>
+<div id="output-card">
+    <h3>alice/nav/1.0.0/<a target="_blank" id="output-file"></a></h3>
+    <p>这是模块的输出文件，请 require 或 seajs.use 以上 ID 来使用本文件，具体 API 请阅读文档。</p>
+</div>
+
       </aside>
       <div id="content-wrapper">
         <div id="content">
 <article class="hentry">
   <h1 class="entry-title">导航样式</h1>
   <div class="entry-content">
-    <p><link type="text/css" rel="stylesheet" media="screen" href="../src/nav.css"></p>
+    <p>主导航样式，存在两级</p>
 
+<hr/>
+<h2 id="%E6%BC%94%E7%A4%BA%E6%96%87%E6%A1%A3">演示文档</h2>
+<p><link type="text/css" rel="stylesheet" media="screen" href="src/nav.css"></p>
+<h3 id="%E9%BB%98%E8%AE%A4%E7%94%A8%E6%B3%95">默认用法</h3>
 <div class="nico-insert-code"><div class="ui-nav">
   <ul class="ui-nav-main">
     <li class="ui-nav-item">
@@ -117,6 +132,50 @@
       <span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
     <span class="tag">&lt;/<span class="title">li</span>&gt;</span>
     <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"ui-nav-item"</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span>&gt;</span>一级导航 4<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"ui-nav-subcontainer"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre></div><h3 id="%E4%B8%8D%E6%98%BE%E7%A4%BA%E4%BA%8C%E7%BA%A7%E5%AF%BC%E8%88%AA">不显示二级导航</h3>
+<div class="nico-insert-code"><div class="ui-nav ui-nav-nosub">
+  <ul class="ui-nav-main">
+    <li class="ui-nav-item">
+      <a href="#">一级导航 1</a>
+      <ul class="ui-nav-submain">
+        <li class="ui-nav-subitem ui-nav-subitem-current"><a href="#">二级导航 1-1</a></li>
+        <li class="ui-nav-subitem"><a href="#">二级导航 1-2</a></li>
+        <li class="ui-nav-subitem"><a href="#">二级导航 1-3</a></li>
+      </ul>
+    </li>
+    <li class="ui-nav-item ui-nav-item-current">
+      <a href="#">一级导航 2</a>
+      <ul class="ui-nav-submain">
+        <li class="ui-nav-subitem"><a href="#">二级导航 2-1</a></li>
+        <li class="ui-nav-subitem ui-nav-subitem-current"><a href="#">二级导航 2-2</a></li>
+        <li class="ui-nav-subitem"><a href="#">二级导航 2-3</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="ui-nav-subcontainer"></div>
+</div>
+</div>
+<div class="highlight"><pre><code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"ui-nav ui-nav-nosub"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">ul</span> <span class="attribute">class</span>=<span class="value">"ui-nav-main"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"ui-nav-item"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span>&gt;</span>一级导航 1<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">ul</span> <span class="attribute">class</span>=<span class="value">"ui-nav-submain"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"ui-nav-subitem ui-nav-subitem-current"</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span>&gt;</span>二级导航 1-1<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"ui-nav-subitem"</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span>&gt;</span>二级导航 1-2<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"ui-nav-subitem"</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span>&gt;</span>二级导航 1-3<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+      <span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"ui-nav-item ui-nav-item-current"</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span>&gt;</span>一级导航 2<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">ul</span> <span class="attribute">class</span>=<span class="value">"ui-nav-submain"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"ui-nav-subitem"</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span>&gt;</span>二级导航 2-1<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"ui-nav-subitem ui-nav-subitem-current"</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span>&gt;</span>二级导航 2-2<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"ui-nav-subitem"</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span>&gt;</span>二级导航 2-3<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+      <span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">li</span>&gt;</span>
   <span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
   <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"ui-nav-subcontainer"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
 <span class="tag">&lt;/<span class="title">div</span>&gt;</span>

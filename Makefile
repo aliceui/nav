@@ -1,5 +1,12 @@
 THEME = $(HOME)/.spm/themes/alice
 
+install:
+	@npm install stylus -g
+	@npm install nib -g
+
+build-styl:
+	@stylus -u nib src/*.styl src/ 
+
 build-doc:
 	@nico build -v -C $(THEME)/nico.js
 
@@ -18,7 +25,6 @@ publish: clean build-doc
 
 clean:
 	@rm -fr _site
-
 
 reporter = spec
 url = tests/runner.html

@@ -1,8 +1,7 @@
 THEME = $(HOME)/.spm/themes/alice
 
 install:
-	@npm install stylus -g
-	@npm install nib -g
+	@npm install stylus nib -g
 
 build-styl:
 	@stylus -u nib src/*.styl src/ 

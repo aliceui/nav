@@ -3,6 +3,9 @@
     "version": "1.0.0",
     "root": "alice",
     "description": "导航样式",
+    "keywords": [
+        "导航"
+    ],
     "homepage": "http://aliceui.github.com/nav/",
     "author": "popomore <sakura9515@gmail.com>",
     "repository": {

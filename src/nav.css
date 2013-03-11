@@ -1,6 +1,9 @@
 .ui-nav {
   position: relative;
 }
+.ui-nav a {
+  text-decoration: none;
+}
 .ui-nav a:hover {
   text-decoration: none;
 }

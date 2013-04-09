@@ -1,12 +1,12 @@
 {
     "name": "nav",
     "version": "1.0.0",
-    "root": "alice",
+    "family": "alice",
     "description": "导航样式",
     "keywords": [
         "导航"
     ],
-    "homepage": "http://aliceui.github.com/nav/",
+    "homepage": "http://aliceui.org/nav/",
     "author": "popomore <sakura9515@gmail.com>",
     "repository": {
         "type": "git",
@@ -16,10 +16,9 @@
         "url": "https://github.com/aliceui/nav/issues"
     },
     "license": "MIT",
-    "dependencies": {
-    },
-    "tests": ["nav"],
-    "output": {
-        "nav.css": "."
+    "spm": {
+        "alias": {
+        },
+        "output": ["nav.css"]
     }
 }

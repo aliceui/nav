@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Nav - Nav - 导航</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="nico 0.2.3" />
+    <meta name="generator" content="nico 0.2.4" />
     <link type="image/x-icon" href="./static/css/favicon.ico" rel="icon">
     <link rel="stylesheet" href="./static/css/normalize.css" />
     <link rel="stylesheet" href="./static/css/site.css" />
@@ -25,7 +25,7 @@
 <script>
   (function() {
     var data;
-    seajs._package = data = {"name":"nav","version":"1.0.0","root":"alice","description":"导航样式","keywords":["导航"],"homepage":"http://aliceui.github.com/nav/","author":"popomore <sakura9515@gmail.com>","repository":{"type":"git","url":"https://github.com/aliceui/nav.git"},"bugs":{"url":"https://github.com/aliceui/nav/issues"},"license":"MIT","dependencies":{},"tests":["nav"],"output":{"nav.css":"."}}
+    seajs._package = data = {"name":"nav","version":"1.0.0","family":"alice","description":"导航样式","keywords":["导航"],"homepage":"http://aliceui.org/nav/","author":"popomore <sakura9515@gmail.com>","repository":{"type":"git","url":"https://github.com/aliceui/nav.git"},"bugs":{"url":"https://github.com/aliceui/nav/issues"},"license":"MIT","spm":{"alias":{},"output":["nav.css"]}}
     data.dependencies && (delete data.dependencies['$'])
     data.devDependencies && (delete data.devDependencies['$'])
 
@@ -33,12 +33,23 @@
     seajs.config({ alias: data.devDependencies })
     seajs.config({ alias: {} })
 
-    // for alice
-    for(var dep in data.dependencies) {
-        // 如果依赖的是样式模块
-        if (data.dependencies[dep].indexOf('.css') > 0) {
-            seajs.use(dep);
+    var dependencies;
+    if (data.spm && data.spm.alias) {
+        loadCss(data.spm.alias);
+    } else {
+        loadCss(data.dependencies);
+    }
+
+    function loadCss(dependencies) {
+        // for alice
+        var array = [];    
+        for(var dep in dependencies) {
+            // 如果依赖的是样式模块
+            if (dependencies[dep].indexOf('.css') > 0) {
+                array.push("http://assets.spmjs.org/" + dependencies[dep]);
+            }
         }
+        seajs.use(array);    
     }
 
   })();
@@ -51,15 +62,15 @@
   <body>
     <div id="body-wrapper">
       <aside id="sidebar-wrapper">
-        <h1><a href="./">Nav</a><sup class="package-root"><a href="/">alice</a></sup></h1>
-        <p class="version">当前版本：<a href="http://aralejs.org/docs/online-status.html#alice-nav" title="点击查看此组件发布情况">1.0.0</a></p>
+        <h1><a href="./">Nav</a><sup class="package-root"><a href="/"></a></sup></h1>
+        <p class="version">当前版本：<a href="http://aralejs.org/docs/online-status.html#-nav" title="点击查看此组件发布情况">1.0.0</a></p>
         <p class="description">导航样式</p>
         <p class="keywords" style="display: none;">导航</p>
         <a class="source" href="https://github.com/aliceui/nav.git" target="_blank">View the Project</a>
 <ul id="module-output"> 
 </ul>
 <div id="output-card">
-    <h3>alice/nav/1.0.0/<a target="_blank" id="output-file"></a></h3>
+    <h3>/nav/1.0.0/<a target="_blank" id="output-file"></a></h3>
     <p>这是模块的输出文件，请 require 或 seajs.use 以上 ID 来使用本文件，具体 API 请阅读文档。</p>
 </div>
 
@@ -72,9 +83,9 @@
     <p>主导航样式，支持两级菜单。</p>
 
 <hr/>
-<h2 id="%E6%BC%94%E7%A4%BA%E6%96%87%E6%A1%A3">演示文档</h2>
+<h2 id="演示文档">演示文档</h2>
 <p><link type="text/css" rel="stylesheet" media="screen" href="src/nav.css"></p>
-<h3 id="%E9%BB%98%E8%AE%A4%E7%94%A8%E6%B3%95">默认用法</h3>
+<h3 id="默认用法">默认用法</h3>
 <div class="nico-insert-code"><div class="ui-nav">
   <ul class="ui-nav-main">
     <li class="ui-nav-item">
@@ -136,7 +147,7 @@
   <span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
   <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"ui-nav-subcontainer"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
 <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-</code></pre></div><h3 id="%E4%B8%8D%E6%98%BE%E7%A4%BA%E4%BA%8C%E7%BA%A7%E5%AF%BC%E8%88%AA">不显示二级导航</h3>
+</code></pre></div><h3 id="不显示二级导航">不显示二级导航</h3>
 <div class="nico-insert-code"><div class="ui-nav ui-nav-nosub">
   <ul class="ui-nav-main">
     <li class="ui-nav-item">

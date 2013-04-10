@@ -1,10 +1,16 @@
 @import 'nib'
 
 // mixin
-linear-gradient(from, to)
-  background -webkit-linear-gradient(top, from, to)
-  background -moz-linear-gradient(top, from, to)
-  filter unquote('progid:DXImageTransform.Microsoft.Gradient(startColorstr=' + from + ', endColorstr=' + to + ')')
+linearGradient(from, to)
+  f = unquote('#' + from)
+  t = unquote('#' + to)
+  ief = '#FF' + from
+  iet = '#FF' + to
+  background: -webkit-linear-gradient(top, f, t)
+  background: -moz-linear-gradient(top, f, t)
+  background: -ms-linear-gradient(f, t)
+  background: -o-linear-gradient(f, t)
+  filter: unquote('progid:DXImageTransform.Microsoft.gradient(startColorstr=' + ief + ', endColorstr=' + iet + ')')
 
 .ui-nav
   position: relative
@@ -23,7 +29,7 @@ linear-gradient(from, to)
   margin: 0
   padding-left: 10px
   border-radius: 2px 2px 0 0
-  linear-gradient(#F39100,  #F17A00)
+  linearGradient(F39100,  F17A00)
 
 .ui-nav-item
   float: left
@@ -39,8 +45,8 @@ linear-gradient(from, to)
     font-weight: bold
     font-size: 14px
     &:hover
-      linear-gradient(#F49C25, #F49726)
-      //background: #F38F26
+      color: #fff
+      linearGradient(F49C25, F49726)
       border-radius: 2px 2px 0 0
 
 .ui-nav-item-current a,
@@ -61,30 +67,36 @@ linear-gradient(from, to)
   float: left
   margin: 5px 10px 0 0
   a
+    display: inline-block
+    *display: inline
+    zoom: 1
     padding: 0 15px
-    height: 24px
+    height: 26px
     line-height: 26px
     background: transparent
-    border: 1px solid transparent
-    _border-color: tomato
-    _filter:chroma(color=tomato)
     color: #868686
     font-weight: normal
     font-size: 12px
     border-radius: 3px
     &:hover
+      height: 24px
+      line-height: 24px
+      padding: 0 14px
       background: transparent
-      filter: none
       box-shadow: 0px -1px 0px #F6F6F6
       border: 1px solid #CECECE
       border-radius: 3px
 
 .ui-nav-subitem-current a,
 .ui-nav-subitem-current a:hover
+  height: 24px
+  line-height: 24px
+  padding: 0 14px
   border-left: 1px solid #DADADA
   border-right: 1px solid #DADADA
   border-top: 1px solid #BEBEBE
   border-bottom: 1px solid transparent
+  _border-bottom: 1px solid #DADADA
   box-shadow: inset 0px 1px 0px #DADADA
   background: #E7E7E7
 
@@ -94,7 +106,7 @@ linear-gradient(from, to)
   border-left: 1px solid #CCCCCC
   border-right: 1px solid #CCCCCC
   border-bottom: 1px solid #CCCCCC
-  linear-gradient(#FEFEFE,  #F7F7F7)
+  linearGradient(FEFEFE,  F7F7F7)
 
 // 控制二级导航显隐
 .ui-nav-item-current .ui-nav-submain

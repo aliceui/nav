@@ -8,7 +8,7 @@
 
 ## 演示文档
 
-<link type="text/css" rel="stylesheet" media="screen" href="src/nav.css">
+<link type="text/css" rel="stylesheet" media="screen" href="dist/nav.css">
 
 ### 默认用法
 
